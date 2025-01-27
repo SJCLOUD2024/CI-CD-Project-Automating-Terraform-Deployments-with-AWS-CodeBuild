@@ -1,18 +1,7 @@
 # configured aws provider with proper credentials
 provider "aws" {
-  region  = "us-east-1"
-  profile = "terraform-user"
-}
-
-
-# store the terraform state file in s3
-terraform {
-  backend "s3" {
-    bucket  = "aosnote-terraform-state-bucket"
-    key     = "build/terraform.tfstate"
-    region  = "us-east-1"
-    profile = "terraform-user"
-  }
+  region  = "eu-west-2"
+  profile = "SJCLOUD2024"
 }
 
 
@@ -97,7 +86,7 @@ resource "aws_instance" "ec2_instance" {
   instance_type          = "t2.micro"
   subnet_id              = aws_default_subnet.default_az1.id
   vpc_security_group_ids = [aws_security_group.ec2_security_group.id]
-  key_name               = "myec2key"
+  key_name               = "26-08-24-KP"
   user_data              = file("install_techmax.sh")
 
   tags = {
