@@ -1,7 +1,7 @@
 # configured aws provider with proper credentials
 provider "aws" {
   region  = "eu-west-2"
-  profile = "SJCLOUD2024"
+  profile = "SJCLOUD-PROGRAMMATIC-USER"
 }
 
 # store the terraform state file in s3
@@ -10,7 +10,7 @@ terraform {
     bucket  = "sjcloud1306-terraform-state-bucket"
     key     = "build/terraform.tfstate"
     region  = "eu-west-2"
-    profile = "SJCLOUD2024"
+    profile = "SJCLOUD-PROGRAMMATIC-USER"
   }
 }
 
