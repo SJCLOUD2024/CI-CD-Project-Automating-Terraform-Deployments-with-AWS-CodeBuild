@@ -4,6 +4,16 @@ provider "aws" {
   profile = "SJCLOUD2024"
 }
 
+# store the terraform state file in s3
+terraform {
+  backend "s3" {
+    bucket  = "sjcloud1306-terraform-state-bucket"
+    key     = "build/terraform.tfstate"
+    region  = "eu-west-2"
+    profile = "SJCLOUD2024"
+  }
+}
+
 
 # create default vpc if one does not exit
 resource "aws_default_vpc" "default_vpc" {
